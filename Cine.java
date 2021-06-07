@@ -21,15 +21,18 @@ public class Cine {
 
             switch (opcion) {
                 case 1:
-                    
+                    if(cine.consultar()>0){
                     int reserva = Integer.parseInt(JOptionPane.showInputDialog("¿Cuantos asientos desea reservar ?"));
                     cine.reservar(reserva);
                     JOptionPane.showMessageDialog(null, "Quedan " + cine.consultar() + " asientos disponibles");
+                    }else JOptionPane.showMessageDialog(null, "No quedan asientos disponibles...prueba en otro momento, tal vez alguien cancele su reserva");
                     break;
                 case 2:
+                    if(cine.consultar()<TOTALASIENTOS){
                     int reserva2 = Integer.parseInt(JOptionPane.showInputDialog("¿Cuantos asientos desea cancelar ?"));
                     cine.cancel(reserva2);
                     JOptionPane.showMessageDialog(null, "Quedan " + cine.consultar() + " asientos disponibles");
+                    }else JOptionPane.showMessageDialog(null, "No hay cancelaciones pendientes");
                     break;
                 case 3:
                     JOptionPane.showMessageDialog(null, "Quedan " + cine.consultar() + " asientos disponibles");
